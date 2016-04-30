@@ -8,6 +8,15 @@ var video2 = 'https://www.youtube.com/watch?v=179MiZSibco';
 var video3 = 'https://www.youtube.com/watch?v=AW8OOp2undg';
 var subtitleFile = '1 1 1-179MiZSibco.en.vtt';
 
+// create bin folder if missing
+var binDir = path.resolve(__dirname, '../../..', 'bin');
+
+if (!fs.existsSync(binDir)) fs.mkdirSync(binDir);
+
+var binDir = path.join(binDir, 'youtube-dl');
+
+if (!fs.existsSync(binDir)) fs.mkdirSync(binDir);
+
 vows.describe('download').addBatch({
   'a video with format specified': {
     'topic': function() {
